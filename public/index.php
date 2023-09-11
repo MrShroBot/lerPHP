@@ -1,16 +1,45 @@
 <?php
-    $name = "Kapar";
-    $num = rand(0,20);
-?>
 
-<?php include 'views/pars/header.php' ?>
-    <h1><?=$name?></h1>
-    <h1><?=$num?></h1>
-    <?php if($num > 10): ?>
-        <h1>suurem</h1>
-    <?php elseif($num == 10): ?>
-        <h1>sama</h1>
-    <?php else: ?>
-        <h1>väiksem</h1>
-    <?php endif ?>
-<?php include 'views/pars/footer.php' ?>
+spl_autoload_register(function ($className){
+    $className = substr($className, 4);
+    require_once __DIR__ . "/../src/$className.php";
+});
+
+use App\Router;
+
+require __DIR__ . '/../routes.php';
+require __DIR__ . '/../helpers.php';
+
+// var_dump(Router::$routes);
+
+$router = new Router($_SERVER['REQUEST_URI']);
+$match = $router->match();
+if($match){
+    if(is_callable($match['action'])){
+        call_user_func($match['action']);
+    } else if(is_array($match['action'])){
+        $class = $match['action'][0];
+        $controller = new $class();
+        $method = $match['action'][1];
+        $controller->$method();
+    }
+} else {
+    echo '404';
+}
+
+
+
+
+// switch ($_SERVER['REQUEST_URI']){
+//     case '/':
+//         echo 'Home page';
+//         break;
+
+//     case '/about':
+//         echo 'About';
+//         break;
+
+//     default:
+//         echo '404';
+//         break;
+// }

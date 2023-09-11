@@ -1,3 +1,3 @@
-<?php include 'views/pars/header.php' ?>
+<?php include __DIR__ . '/pars/header.php'; ?>
     <h1>Bruh</h1>
-<?php include 'views/pars/footer.php' ?>
+<?php include __DIR__ . '/pars/footer.php'; ?>
