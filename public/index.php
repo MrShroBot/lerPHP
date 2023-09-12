@@ -12,7 +12,7 @@ require __DIR__ . '/../helpers.php';
 
 // var_dump(Router::$routes);
 
-$router = new Router($_SERVER['REQUEST_URI']);
+$router = new Router($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
 $match = $router->match();
 if($match){
     if(is_callable($match['action'])){

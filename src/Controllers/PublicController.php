@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use DeflateContext;
+
 class PublicController {
     public function home() {
         $name = "Kapar";
@@ -10,5 +12,12 @@ class PublicController {
     }
     public function about() {
         view('about');
+    }
+    public function test() {
+        var_dump($_POST);
+        view('/form');
+    }
+    public function testAns() {
+        var_dump($_POST);
     }
 }
