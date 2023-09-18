@@ -2,10 +2,16 @@
 
 namespace App\Controllers;
 
-use DeflateContext;
+use App\DB;
+use App\Models\User;
 
 class PublicController {
     public function home() {
+        $db = new DB;
+        $result = User::all();
+        var_dump($result);
+
+        die();
         $name = "Kapar";
         $num = rand(0,20);
         view('home', compact('name','num'));
