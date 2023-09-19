@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use App\DB;
 use App\Models\Article;
 
 class PublicController {
