@@ -1,11 +1,22 @@
 <?php include __DIR__ . '/pars/header.php'; ?>
-    <h1><?=$name?></h1>
-    <h1><?=$num?></h1>
-    <?php if($num > 10): ?>
-        <h1>Suurem</h1>
-    <?php elseif($num == 10): ?>
-        <h1>Pool</h1>
-    <?php else: ?>
-        <h1>Väiksem</h1>
-    <?php endif ?>
+
+  <div class="container">
+    <div class="columns">
+      <div class="column is-3">
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title">
+              Component
+            </p>
+          </header>
+          <div class="card-content">
+            <div class="content">
+              Bruh ma olen väga väsinud. Ma vaatasin filmisarja liig hilja öösse ja sain 6h magada
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <?php include __DIR__ . '/pars/footer.php'; ?>

@@ -10,8 +10,6 @@ use App\Router;
 require __DIR__ . '/../routes.php';
 require __DIR__ . '/../helpers.php';
 
-// var_dump(Router::$routes);
-
 $router = new Router($_SERVER['REQUEST_URI'], $_SERVER['REQUEST_METHOD']);
 $match = $router->match();
 if($match){
@@ -26,20 +24,3 @@ if($match){
 } else {
     echo '404';
 }
-
-
-
-
-// switch ($_SERVER['REQUEST_URI']){
-//     case '/':
-//         echo 'Home page';
-//         break;
-
-//     case '/about':
-//         echo 'About';
-//         break;
-
-//     default:
-//         echo '404';
-//         break;
-// }

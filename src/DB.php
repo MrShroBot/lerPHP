@@ -18,7 +18,7 @@ class DB {
     }
 
     public function all($table,$class){
-        $stmt = $this->conn->prepare("SELECT * FROM $table");
+        $stmt = $this->conn->prepare("SELECT * FROM  $table");
         $stmt->execute();
 
         $stmt->setFetchMode(PDO::FETCH_CLASS, $class);
