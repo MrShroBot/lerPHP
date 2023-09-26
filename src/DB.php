@@ -24,6 +24,7 @@ class DB {
         $stmt->setFetchMode(PDO::FETCH_CLASS, $class);
         return $stmt->fetchAll();
     }
+
     public function find($table,$class,$id){
         $stmt = $this->conn->prepare("SELECT * FROM  $table WHERE id=$id");
         $stmt->execute();
@@ -31,6 +32,7 @@ class DB {
         $stmt->setFetchMode(PDO::FETCH_CLASS, $class);
         return $stmt->fetch();
     }
+
     public function insert($table, $fields){
         unset($fields['id']);
         $fieldNameText = implode(', ', array_keys($fields));
@@ -40,6 +42,7 @@ class DB {
 
         $this->conn->exec($sql);
     }
+
     public function update($table, $fields){
         $id=$fields['id'];
         unset($fields['id']);
@@ -52,8 +55,18 @@ class DB {
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
     }
+
     public function delete($table, $id){
         $sql = "DELETE FROM $table WHERE id=$id";
         $this->conn->exec($sql);
     }
+
+    public function where($table, $class, $field, $value){
+        $stmt = $this->conn->prepare("SELECT * FROM  $table WHERE $field='$value'");
+        $stmt->execute();
+
+        $stmt->setFetchMode(PDO::FETCH_CLASS, $class);
+        return $stmt->fetchAll();
+    }
+
 }

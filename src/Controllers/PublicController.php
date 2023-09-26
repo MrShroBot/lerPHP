@@ -13,8 +13,10 @@ class PublicController {
         view('about');
     }
     public function test() {
-        var_dump($_POST);
-        view('/form');
+        // setcookie('MyCookie', 'yummy', time() + 60*60*24*30, '', '', false, true);
+        // var_dump($_COOKIE);
+        var_dump($_SESSION);
+        // $_SESSION['id']= 123;
     }
     public function testAns() {
         var_dump($_POST);

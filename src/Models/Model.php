@@ -12,10 +12,17 @@ class Model{
         $db = new DB();
         return $db->all(static::$table, static::class);
     }
+
+    public static function where($field, $value){
+        $db = new DB();
+        return $db->where(static::$table, static::class, $field, $value);
+    }
+
     public static function find($id){
         $db = new DB();
         return $db->find(static::$table, static::class,$id);
     }
+
     public function save(){
         $db = new DB();
         $fields = get_object_vars($this);
@@ -25,8 +32,10 @@ class Model{
             $db->insert(static::$table, $fields);
         }
     }
+
     public function delete(){
         $db = new DB();
         $db->delete(static::$table, $this->id);
     }
+
 }
