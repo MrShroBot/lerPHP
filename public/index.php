@@ -2,10 +2,7 @@
 
 session_start();
 
-spl_autoload_register(function ($className){
-    $className = substr($className, 4);
-    require_once __DIR__ . "/../src/$className.php";
-});
+require __DIR__ . '/../vendor/autoload.php';
 
 use App\Router;
 

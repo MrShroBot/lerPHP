@@ -15,7 +15,10 @@
       </a>
 
       <a class="navbar-item" href="/admin/articles">
-        Admin
+        Articles
+      </a>
+      <a class="navbar-item" href="/admin/users">
+        Users
       </a>
 
         </div>
