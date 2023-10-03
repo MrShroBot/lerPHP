@@ -4,6 +4,7 @@ use App\Controllers\ArticlesController;
 use App\Controllers\AuthController;
 use App\Router;
 use App\Controllers\PublicController;
+use App\Controllers\UserController;
 
 Router::get('/',[PublicController::class, 'home']);
 
@@ -26,4 +27,6 @@ Router::post('/login', [AuthController::class, 'login']);
 Router::get('/login', [AuthController::class, 'loginForm']);
 Router::get('/logout', [AuthController::class, 'logout']);
 
-Router::get('/admin/users', [ArticlesController::class, 'index']);
+Router::get('/admin/users', [UserController::class, 'index']);
+Router::get('/admin/users/viwe', [UserController::class, 'show']);
+Router::get('/admin/users/delete', [UserController::class, 'delete']);
